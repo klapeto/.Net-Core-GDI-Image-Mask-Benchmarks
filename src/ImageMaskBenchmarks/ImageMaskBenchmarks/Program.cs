@@ -41,8 +41,12 @@ namespace ImageMaskBenchmarks
 			MeasureAction(timeMeasurer, nameof(MaskApplier.ApplyMask_SetPixel), () => MaskApplier.ApplyMask_SetPixel(bmp, mask));
 			
 			MeasureAction(timeMeasurer, nameof(MaskApplier.ApplyMask_Marshal_Copy), () => MaskApplier.ApplyMask_Marshal_Copy(bmp, mask));
-			MeasureAction(timeMeasurer, nameof(MaskApplier.ApplyMask_Marshal_Copy_ArrayPool), () => MaskApplier.ApplyMask_Marshal_Copy_ArrayPool(bmp, mask));
-			
+			MeasureAction(timeMeasurer, nameof(MaskApplier.ApplyMask_Marshal_Copy_Span_MultiThread), () => MaskApplier.ApplyMask_Marshal_Copy_Span_MultiThread(bmp, mask));
+
+			MeasureAction(timeMeasurer, nameof(MaskApplier.ApplyMask_Unsafe_Copy_Span), () => MaskApplier.ApplyMask_Unsafe_Copy_Span(bmp, mask));
+			MeasureAction(timeMeasurer, nameof(MaskApplier.ApplyMask_Unsafe_Copy_Constant_Span), () => MaskApplier.ApplyMask_Unsafe_Copy_Constant_Span(bmp, mask));
+			MeasureAction(timeMeasurer, nameof(MaskApplier.ApplyMask_Unsafe_Copy_Constant_Unrolled_Span), () => MaskApplier.ApplyMask_Unsafe_Copy_Constant_Unrolled_Span(bmp, mask));
+
 			MeasureAction(timeMeasurer, nameof(MaskApplier.ApplyMask_Unsafe_Copy), () => MaskApplier.ApplyMask_Unsafe_Copy(bmp, mask));
 			MeasureAction(timeMeasurer, nameof(MaskApplier.ApplyMask_Unsafe_Copy_Constant), () => MaskApplier.ApplyMask_Unsafe_Copy_Constant(bmp, mask));
 			MeasureAction(timeMeasurer, nameof(MaskApplier.ApplyMask_Unsafe_Copy_Constant_Unrolled), () => MaskApplier.ApplyMask_Unsafe_Copy_Constant_Unrolled(bmp, mask));
